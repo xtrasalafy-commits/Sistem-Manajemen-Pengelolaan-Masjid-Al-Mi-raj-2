@@ -1,0 +1,159 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-text-size-adjust: 100%;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    @apply bg-dark-50 font-sans text-dark-800 antialiased;
+    font-family: 'Plus Jakarta Sans', 'Inter', system-ui, sans-serif;
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+  }
+  ::-webkit-scrollbar-track {
+    @apply bg-dark-100;
+  }
+  ::-webkit-scrollbar-thumb {
+    @apply rounded-full bg-dark-300;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    @apply bg-dark-400;
+  }
+
+  /* Focus ring untuk accessibility */
+  :focus-visible {
+    @apply outline-none ring-2 ring-primary-600 ring-offset-2;
+  }
+}
+
+@layer components {
+  /* Button variants */
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-lg px-4 py-2.5 text-sm font-semibold
+           transition-all duration-200 focus:outline-none focus:ring-2 focus:ring-offset-2
+           disabled:cursor-not-allowed disabled:opacity-60;
+  }
+  .btn-primary {
+    @apply btn bg-primary-600 text-white shadow-sm hover:bg-primary-700 focus:ring-primary-500;
+  }
+  .btn-secondary {
+    @apply btn border border-dark-200 bg-white text-dark-700 hover:bg-dark-50 focus:ring-primary-500;
+  }
+  .btn-gold {
+    @apply btn bg-accent-400 text-dark-900 hover:bg-accent-300 focus:ring-accent-400;
+  }
+  .btn-danger {
+    @apply btn bg-red-600 text-white hover:bg-red-700 focus:ring-red-500;
+  }
+  .btn-ghost {
+    @apply btn text-dark-600 hover:bg-dark-100;
+  }
+  .btn-sm {
+    @apply px-3 py-1.5 text-xs;
+  }
+
+  /* Card */
+  .card {
+    @apply rounded-xl border border-dark-100 bg-white p-6 shadow-card;
+  }
+  .card-body {
+    @apply p-6;
+  }
+  .card-header {
+    @apply flex items-center justify-between border-b border-dark-100 px-6 py-4;
+  }
+
+  /* Form controls */
+  .form-label {
+    @apply mb-1.5 block text-sm font-medium text-dark-700;
+  }
+  .form-input {
+    @apply w-full rounded-lg border border-dark-200 bg-white px-3.5 py-2.5 text-sm text-dark-800
+           transition-colors placeholder:text-dark-400
+           focus:border-primary-500 focus:outline-none focus:ring-1 focus:ring-primary-500
+           disabled:bg-dark-50 disabled:text-dark-400;
+  }
+  .form-input-error {
+    @apply border-red-400 focus:border-red-500 focus:ring-red-500;
+  }
+  .form-error {
+    @apply mt-1 text-xs text-red-600;
+  }
+  .form-hint {
+    @apply mt-1 text-xs text-dark-400;
+  }
+
+  /* Badge */
+  .badge {
+    @apply inline-flex items-center gap-1 rounded-full px-2.5 py-0.5 text-xs font-medium;
+  }
+  .badge-green {
+    @apply badge bg-primary-100 text-primary-700;
+  }
+  .badge-red {
+    @apply badge bg-red-100 text-red-700;
+  }
+  .badge-yellow {
+    @apply badge bg-accent-100 text-accent-700;
+  }
+  .badge-blue {
+    @apply badge bg-blue-100 text-blue-700;
+  }
+  .badge-gray {
+    @apply badge bg-dark-100 text-dark-600;
+  }
+
+  /* Table */
+  .table-container {
+    @apply overflow-x-auto;
+  }
+  .data-table {
+    @apply w-full min-w-full divide-y divide-dark-100 text-left text-sm;
+  }
+  .data-table thead th {
+    @apply whitespace-nowrap bg-dark-50 px-4 py-3 text-xs font-semibold uppercase tracking-wide text-dark-500;
+  }
+  .data-table tbody td {
+    @apply whitespace-nowrap px-4 py-3.5 text-dark-700;
+  }
+  .data-table tbody tr {
+    @apply transition-colors hover:bg-primary-50/40;
+  }
+
+  /* Sidebar nav link */
+  .nav-link {
+    @apply flex items-center gap-3 rounded-lg px-3 py-2.5 text-sm font-medium text-dark-600
+           transition-colors hover:bg-primary-50 hover:text-primary-700;
+  }
+  .nav-link-active {
+    @apply bg-primary-600 text-white shadow-sm hover:bg-primary-700 hover:text-white;
+  }
+
+  /* Section title */
+  .page-title {
+    @apply text-2xl font-bold text-dark-900;
+  }
+  .page-subtitle {
+    @apply text-sm text-dark-500;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  .animate-fade-in {
+    animation: fadeIn 0.3s ease-in-out;
+  }
+  .animate-slide-up {
+    animation: slideUp 0.3s ease-out;
+  }
+}
